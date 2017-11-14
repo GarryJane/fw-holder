@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FW Blocker</title>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="views/custom.css">
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">FW Blocker</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul id="nav" class="nav navbar-nav">
+                <li v-for="item in items" :class="{ 'active' : item.active }">
+                    <a :href=" item.url ">{{ item.name }}</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <form class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!--           <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container">
+    <table id="box" class="table table-hover">
+        <thead>
+        <th>Клиент</th>
+        <th>Объект</th>
+        <th>Действия</th>
+        </thead>
+        <tbody>
+        <tr v-for="b in blocked">
+            <td>{{ b.name }}</td>
+            <td>{{ b.obj }}</td>
+            <td>
+                <button :id="b.id" class="btn btn-default">
+                    <i class="glyphicon glyphicon-ok"></i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<script src="vendor/vuejs/vue.min.js"></script>
+<script>
+
+    new Vue({
+        el: '#nav',
+        data: {
+            items: [
+                {
+                    name: "Блокировка",
+                    url: '#',
+                    active: true
+                },
+                {
+                    name: "Все",
+                    url: "user-list.html",
+                    active: false
+                },
+                {
+                    name: "Добавить",
+                    url: "add-new.html",
+                    active: false
+                },
+                {
+                    name: "Удалить",
+                    url: "remove-user.html",
+                    active: false
+                }
+            ]
+        }
+    });
+    new Vue({
+        el: '#box',
+        data: {
+            blocked: [
+                {
+                    id: "1",
+                    name: "Пользователь1",
+                    obj: "Эридан I"
+                },
+                {
+                    id: "2",
+                    name: "Пользователь1",
+                    obj: "Эридан II"
+                }
+            ]
+        }
+    });
+
+</script>
+
+</body>
+</html>

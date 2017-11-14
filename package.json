@@ -1,0 +1,19 @@
+{
+  "name": "fw-holder",
+  "version": "1.0.0",
+  "description": "Block/Restire Tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GarryJane/fw-holder.git"
+  },
+  "author": "GarryJane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GarryJane/fw-holder/issues"
+  },
+  "homepage": "https://github.com/GarryJane/fw-holder#readme"
+}
